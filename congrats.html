@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Congratulations!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg,#7b4df3,#1abc9c);
+      color: white;
+      text-align: center;
+    }
+    h1 {
+      font-size: 48px;
+      margin-bottom: 30px;
+      animation: pulse 1.5s infinite;
+    }
+    button {
+      padding: 15px 40px;
+      font-size: 20px;
+      border: none;
+      border-radius: 25px;
+      background: #ff6b6b;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1 id="winnerText">🎉 Congratulations! 🎉</h1>
+    <button type="button" onclick="goBack()">Play Again</button>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const winner = params.get('winner');
+    const winnerText = document.getElementById('winnerText');
+
+    if(winner) {
+      winnerText.textContent = `🎉 Congratulations, ${winner} Wins! 🎉`;
+    }
+
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Connect Four</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- MENU SCREEN -->
+<div id="menuScreen" class="menu-screen">
+  <h1>CONNECT FOUR GAME</h1>
+  <p>Choose Your Mode</p>
+
+  <div class="menu-options">
+    <label>
+      <input type="radio" name="mode" value="pvp" checked>
+      Player vs Player
+    </label>
+    <label>
+      <input type="radio" name="mode" value="ai">
+      Player vs AI
+    </label>
+  </div>
+
+  <input type="text" id="player1Input" placeholder="Player 1 Name">
+  <input type="text" id="player2Input" placeholder="Player 2 Name">
+
+  <button onclick="startGame()">START GAME</button>
+</div>
+
+<!-- GAME SCREEN -->
+<div class="container hidden" id="gameContainer">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <button class="pill" onclick="openMenu()">MENU</button>
+
+    <div class="dots">
+      <span class="red"></span>
+      <span class="yellow"></span>
+      <span class="red"></span>
+      <span class="yellow"></span>
+    </div>
+
+    <button class="pill" onclick="restartGame()">RESTART</button>
+  </div>
+
+  <!-- GAME AREA -->
+  <div class="game-area">
+
+    <div class="player-card">
+      <div class="emoji" id="p1Emoji">🙂</div>
+      <p id="p1Name">Player 1</p>
+      <h2 id="p1Score">0</h2>
+    </div>
+
+    <div id="board"></div>
+
+    <div class="player-card">
+      <div class="emoji" id="p2Emoji">🙂</div>
+      <p id="p2Name">Player 2</p>
+      <h2 id="p2Score">0</h2>
+    </div>
+
+  </div>
+
+  <div class="turn-box" id="status">TURN</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
